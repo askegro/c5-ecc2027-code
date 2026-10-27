@@ -1,6 +1,8 @@
 # Main-study trace inputs
 
-The main-study archive contains **576 files for 96 units**: 24 units each under cold, nominal, hot, and aged conditions. Each unit has six records:
+Download the [main-study simulation dataset](https://doi.org/10.5281/zenodo.23701669) from Zenodo. It contains the trace archive, a file manifest, checksums, and loading instructions.
+
+The archive contains **576 files for 96 units**: 24 units each under cold, nominal, hot, and aged conditions. Each unit has six records:
 
 - `s4786.npz`: identification sequence.
 - `s9588.npz`: coverage sequence.
@@ -9,50 +11,39 @@ The main-study archive contains **576 files for 96 units**: 24 units each under 
 - `val.npz`: validation profile.
 - `zref.json`: reference impedance.
 
-The archive is distributed separately as `traces_confirm.tgz.part00` through `part15`.
+## Verify the download
 
-## Verify
+Download `traces_confirm.tgz`, `trace_manifest.txt`, `SHA256SUMS`, `README.txt`, and `LICENSE` into one directory.
 
-From the repository root, with Python 3.11 or later:
-
-```text
-python tools/verify_confirm_traces.py --parts "PATH_TO_PARTS" --manifest code/confirm.list --report local_reports/trace_verification.json
-```
-
-The verifier checks gzip integrity, exact membership against `confirm.list`, duplicate paths, record types, and unit counts. Use `--work-dir` to choose a writable directory for its temporary archive.
-
-The assembled archive is 285,107,260 bytes. SHA-256:
-
-```text
-474093bb26dcf2686d0840e2b84f467547062e849cce4b6c8499e5bdcf34f88b
-```
-
-## Assemble and extract
-
-On macOS/Linux:
+On Linux/macOS:
 
 ```bash
-cat PATH_TO_PARTS/traces_confirm.tgz.part* > traces_confirm.tgz
-tar -xzf traces_confirm.tgz -C code
+sha256sum -c SHA256SUMS
 ```
 
 On Windows PowerShell:
 
 ```powershell
-$partsDir = 'PATH_TO_PARTS'
-$archivePath = 'traces_confirm.tgz'
-$destination = [IO.File]::Create($archivePath)
-try {
-    0..15 | ForEach-Object {
-        $partPath = Join-Path $partsDir ('traces_confirm.tgz.part{0:D2}' -f $_)
-        $source = [IO.File]::OpenRead($partPath)
-        try { $source.CopyTo($destination) } finally { $source.Dispose() }
-    }
-} finally { $destination.Dispose() }
-tar -xzf $archivePath -C code
+Get-FileHash traces_confirm.tgz -Algorithm SHA256
 ```
 
-Extract into a working copy without an existing `code/traces_confirm/` directory. The archive contains that directory prefix.
+The archive is 285,107,260 bytes. SHA-256:
+
+```text
+474093bb26dcf2686d0840e2b84f467547062e849cce4b6c8499e5bdcf34f88b
+```
+
+The file manifest matches all 576 output paths in `code/confirm.list`.
+
+## Extract
+
+From the repository root:
+
+```bash
+tar -xzf PATH_TO_DATA/traces_confirm.tgz -C code
+```
+
+This creates `code/traces_confirm/`. Use a working copy without an existing trace directory.
 
 ## Fit
 
@@ -73,3 +64,13 @@ $env:PYTHONPATH = (Resolve-Path code).Path
 Push-Location results/report
 try { python ../../code/paper_reporting/make_figs_ecc.py } finally { Pop-Location }
 ```
+
+## Original split archive
+
+For a local copy stored as `traces_confirm.tgz.part00` through `part15`, use Python 3.11 or later to verify the parts before extraction:
+
+```text
+python tools/verify_confirm_traces.py --parts "PATH_TO_PARTS" --manifest code/confirm.list --report local_reports/trace_verification.json
+```
+
+This checks gzip integrity, manifest membership, duplicate paths, record types, and unit counts. Use `--work-dir` to select a writable directory for the temporary joined archive.
