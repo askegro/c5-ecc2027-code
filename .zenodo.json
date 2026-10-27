@@ -21,6 +21,11 @@
       "identifier": "https://github.com/askegro/c5-ecc2027-code",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23701669",
+      "relation": "isSupplementedBy",
+      "scheme": "doi"
     }
   ]
 }
