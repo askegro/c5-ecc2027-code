@@ -58,4 +58,4 @@ Run the robustness drivers from their respective study directories.
 
 ## Input requirements
 
-Stored results support table and statistic generation. Refitting and raw-trace figures also require the separately distributed simulation traces. Per-unit `results_baseline/` fits are not included; their summary is in `reference/results_baseline_summary.json`.
+Stored results support table and statistic generation. Refitting and raw-trace figures also require the [simulation trace dataset](https://doi.org/10.5281/zenodo.23701669). Per-unit `results_baseline/` fits are not included; their summary is in `reference/results_baseline_summary.json`.
