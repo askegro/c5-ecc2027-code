@@ -44,7 +44,7 @@ python run.py report --output results/report-2
 
 See [the reproduction guide](docs/REPRODUCIBILITY.md) for reporting and simulation commands, and [trace inputs](docs/TRACE_REPRODUCTION.md) for verification of the complete 576-file main-study archive.
 
-The main-study raw simulation traces are not included in this repository. They are required for refitting and raw-trace figures. Per-unit baseline fits are not included; their summary is available in `reference/results_baseline_summary.json`.
+The main-study raw simulation traces are not included in this repository. Download them from the [Zenodo dataset](https://doi.org/10.5281/zenodo.23701669). They are required for refitting and raw-trace figures. Per-unit baseline fits are not included; their summary is available in `reference/results_baseline_summary.json`.
 
 ## License and citation
 
