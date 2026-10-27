@@ -1,0 +1,20 @@
+{
+ "tag": "cold_p11_c0",
+ "cond": "cold",
+ "pack": 11,
+ "cell": 0,
+ "C1": {
+  "rmse_mv": 10.852088639008958,
+  "order": 2,
+  "success": true,
+  "refit": false,
+  "sec": 102.86828064918518
+ },
+ "C2": {
+  "rmse_mv": 11.09560070826155,
+  "order": 2,
+  "success": true,
+  "refit": false,
+  "sec": 90.94427728652954
+ }
+}

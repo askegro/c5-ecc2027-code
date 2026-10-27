@@ -1,0 +1,15 @@
+complete units: 96 of 96
+median RMSE (mV) on the WLTC validation:
+  cge        col   0.78  nom   0.66  hot   0.37  age   0.91
+  cge2000    col   2.41  nom   1.99  hot   2.20  age   2.51
+  ecm        col   5.26  nom   1.61  hot   1.26  age   1.97
+  conv       col   5.87  nom   4.39  hot   4.74  age   4.79
+  drt        col   4.78  nom   1.14  hot   0.47  age   1.44
+  lin        col   4.78  nom   1.13  hot   0.46  age   1.44
+  cge_drive  col   0.87  nom   0.65  hot   0.37  age   0.87
+  cge_rest   col   0.42  nom   0.62  hot   0.30  age   0.90
+  CGE(265) - ecm : col -4.39 [12/12, Holm 0.002]  nom -0.90 [12/12, Holm 0.002]  hot -0.89 [12/12, Holm 0.002]  age -0.87 [12/12, Holm 0.002]
+  CGE(265) - conv: col -6.31 [12/12, Holm 0.002]  nom -3.35 [12/12, Holm 0.002]  hot -3.94 [12/12, Holm 0.002]  age -3.88 [12/12, Holm 0.002]
+  CGE(265) - drt : col -3.92 [12/12, Holm 0.002]  nom -0.36 [12/12, Holm 0.002]  hot -0.22 [12/12, Holm 0.002]  age -0.46 [12/12, Holm 0.002]
+  CGE(265) - lin : col -3.92 [12/12, Holm 0.002]  nom -0.36 [12/12, Holm 0.002]  hot -0.22 [12/12, Holm 0.002]  age -0.46 [12/12, Holm 0.002]
+N15 CRITERION MET

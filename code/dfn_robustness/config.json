@@ -1,0 +1,506 @@
+{
+  "project": {
+    "name": "acc_power_transparent_pybamm_full",
+    "random_seed": 20260724,
+    "output_dir": "outputs_acc_pybamm_full",
+    "overleaf_dir": "overleaf",
+    "write_overleaf": false,
+    "n_jobs": 1
+  },
+  "study": {
+    "chemistries": [
+      "NMC",
+      "LFP"
+    ],
+    "n_packs_per_chemistry": 20,
+    "pack_sizes": [
+      4
+    ],
+    "operating_points": [
+      {
+        "soc": 0.2,
+        "temperature_c": 10.0,
+        "soh": 1.0
+      },
+      {
+        "soc": 0.5,
+        "temperature_c": 25.0,
+        "soh": 1.0
+      },
+      {
+        "soc": 0.8,
+        "temperature_c": 40.0,
+        "soh": 1.0
+      },
+      {
+        "soc": 0.5,
+        "temperature_c": 25.0,
+        "soh": 0.85
+      }
+    ],
+    "voltage_noise_std_v": [
+      0.0005,
+      0.001
+    ],
+    "current_noise_std_a": [
+      0.02
+    ],
+    "soc_bias_std": [
+      0.002
+    ],
+    "switch_timing_jitter_std_s": [
+      0.0,
+      0.0002
+    ],
+    "baseline_current_a": 20.0,
+    "dynamic_current": true,
+    "independent_validation_duration_s": 180.0,
+    "independent_validation_dt_s": 0.05,
+    "perturbation_conditions": [
+      {
+        "voltage_noise_std_v": 0.0005,
+        "current_noise_std_a": 0.02,
+        "soc_bias_std": 0.002,
+        "switch_timing_jitter_std_s": 0.0002
+      }
+    ]
+  },
+  "architecture": {
+    "max_simultaneous_pairs": 4,
+    "minimum_current_a": 10.0,
+    "switch_on_resistance_ohm": 0.0005,
+    "minimum_pair_dwell_s": 0.005,
+    "admissible_soc_difference": 0.08,
+    "admissible_temperature_difference_c": 8.0,
+    "pack_power_reference_w": 80000.0
+  },
+  "excitation": {
+    "proposed": {
+      "low_band": {
+        "lfsr_order": 8,
+        "bit_period_s": 1.0,
+        "repeats": 1
+      },
+      "high_band": {
+        "lfsr_order": 10,
+        "bit_period_s": 0.01,
+        "repeats": 1
+      },
+      "reliable_lowest_bin": 2,
+      "target_frequencies_hz": [
+        0.008,
+        0.0125,
+        0.02,
+        0.0315,
+        0.05,
+        0.08,
+        0.125,
+        0.2,
+        0.315,
+        0.5,
+        0.8,
+        1.25,
+        2.0,
+        3.15,
+        5.0,
+        8.0,
+        12.5,
+        20.0,
+        31.5,
+        50.0
+      ],
+      "candidate_seeds_per_polynomial": 100,
+      "objective": "D",
+      "fim_regularization": 1e-12,
+      "low_frequency_weight_power": 0.35
+    },
+    "short_baseline": {
+      "low_band": {
+        "lfsr_order": 7,
+        "bit_period_s": 0.5,
+        "repeats": 1
+      },
+      "high_band": {
+        "lfsr_order": 9,
+        "bit_period_s": 0.02,
+        "repeats": 1
+      }
+    },
+    "spectral_baseline": {
+      "low_band": {
+        "lfsr_order": 8,
+        "bit_period_s": 1.0,
+        "repeats": 1
+      },
+      "high_band": {
+        "lfsr_order": 10,
+        "bit_period_s": 0.01,
+        "repeats": 1
+      }
+    },
+    "baseline_candidate_seeds_per_polynomial": 100
+  },
+  "identification": {
+    "candidate_rc_orders": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "fit_inductance": false,
+    "drift_polynomial_order": 2,
+    "transient_initial_states": true,
+    "coherence_threshold": 0.8,
+    "minimum_excitation_snr_db": 12.0,
+    "blocked_validation_fraction": 0.25,
+    "model_selection_voltage_weight": 1.0,
+    "model_selection_bic_weight": 0.05,
+    "bootstrap_replicates": 0,
+    "bootstrap_cells_per_pack": 0,
+    "bootstrap_block_duration_s": 3.0,
+    "confidence_level": 0.95,
+    "optimizer_max_nfev": 2500,
+    "acceptance": {
+      "minimum_valid_frequency_fraction": 0.25,
+      "maximum_blocked_validation_rmse_mv": 30.0,
+      "maximum_independent_voltage_rmse_mv": 40.0,
+      "maximum_attempts_per_cell": 2
+    }
+  },
+  "pairing": {
+    "weights": {
+      "ocv": 1.0,
+      "impedance": 2.0,
+      "soc": 0.5,
+      "temperature": 0.5,
+      "soh": 0.5,
+      "uncertainty": 1.0,
+      "priority": 0.2
+    },
+    "uncertainty_inflation": 1.96,
+    "impedance_frequencies_hz": [
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "methods": [
+      "mismatch_aware",
+      "random"
+    ]
+  },
+  "statistics": {
+    "bootstrap_replicates": 5000,
+    "confidence_level": 0.95,
+    "primary_metric": "validation_voltage_rmse_mv",
+    "multiplicity_method": "holm",
+    "comparison_methods": [
+      "coverage_sequence",
+      "short_sequence",
+      "random_pairing",
+      "no_orientation"
+    ]
+  },
+  "truth_backend": {
+    "kind": "external_python",
+    "module": "campaign_v4_backend",
+    "search_path": "."
+  },
+  "bms_prior": {
+    "parameter_section": "pybamm_bms_prior_parameters"
+  },
+  "synthetic_truth": {
+    "warning": "Demonstration-only ECM truth. Replace with CEA DFN/P2D or experimentally validated cell models for publication.",
+    "NMC": {
+      "nominal_capacity_ah": 60.0,
+      "r0_ohm": 0.0016,
+      "rc_resistances_ohm": [
+        0.00075,
+        0.00115,
+        0.0021
+      ],
+      "time_constants_s": [
+        0.12,
+        3.2,
+        28.0
+      ],
+      "parameter_cv": 0.1,
+      "capacity_cv": 0.025,
+      "temperature_coefficient_per_c": -0.018,
+      "ageing_resistance_gain_at_80pct_soh": 0.55,
+      "ocv_soc_points": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.35,
+        0.5,
+        0.65,
+        0.8,
+        0.9,
+        0.97,
+        1.0
+      ],
+      "ocv_v_points": [
+        3.0,
+        3.34,
+        3.48,
+        3.59,
+        3.68,
+        3.76,
+        3.83,
+        3.94,
+        4.05,
+        4.16,
+        4.2
+      ]
+    },
+    "LFP": {
+      "nominal_capacity_ah": 60.0,
+      "r0_ohm": 0.0019,
+      "rc_resistances_ohm": [
+        0.00065,
+        0.0014,
+        0.00275
+      ],
+      "time_constants_s": [
+        0.2,
+        5.5,
+        42.0
+      ],
+      "parameter_cv": 0.12,
+      "capacity_cv": 0.03,
+      "temperature_coefficient_per_c": -0.022,
+      "ageing_resistance_gain_at_80pct_soh": 0.65,
+      "ocv_soc_points": [
+        0.0,
+        0.03,
+        0.08,
+        0.15,
+        0.3,
+        0.5,
+        0.7,
+        0.85,
+        0.93,
+        0.98,
+        1.0
+      ],
+      "ocv_v_points": [
+        2.5,
+        2.9,
+        3.15,
+        3.24,
+        3.29,
+        3.31,
+        3.32,
+        3.34,
+        3.42,
+        3.55,
+        3.6
+      ]
+    }
+  },
+  "methods": {
+    "proposed": {
+      "design": "proposed",
+      "pairing": "mismatch_aware",
+      "orientation": "optimized"
+    },
+    "no_orientation": {
+      "design": "proposed",
+      "pairing": "mismatch_aware",
+      "orientation": "fixed_positive"
+    },
+    "random_pairing": {
+      "design": "proposed",
+      "pairing": "random",
+      "orientation": "optimized"
+    },
+    "coverage_sequence": {
+      "design": "spectral_baseline",
+      "pairing": "mismatch_aware",
+      "orientation": "optimized"
+    },
+    "short_sequence": {
+      "design": "short_baseline",
+      "pairing": "mismatch_aware",
+      "orientation": "optimized"
+    }
+  },
+  "reporting": {
+    "overleaf_dir": "overleaf_acc",
+    "truth_model_name": "PyBaMM Single Particle Model with electrolyte (SPMe)"
+  },
+  "bms_prior_parameters": {
+    "NMC": {
+      "nominal_capacity_ah": 60.0,
+      "r0_ohm": 0.0016,
+      "rc_resistances_ohm": [
+        0.00075,
+        0.00115,
+        0.0021
+      ],
+      "time_constants_s": [
+        0.12,
+        3.2,
+        28.0
+      ],
+      "temperature_coefficient_per_c": -0.018,
+      "ageing_resistance_gain_at_80pct_soh": 0.55,
+      "ocv_soc_points": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.35,
+        0.5,
+        0.65,
+        0.8,
+        0.9,
+        0.97,
+        1.0
+      ],
+      "ocv_v_points": [
+        3.0,
+        3.34,
+        3.48,
+        3.59,
+        3.68,
+        3.76,
+        3.83,
+        3.94,
+        4.05,
+        4.16,
+        4.2
+      ]
+    },
+    "LFP": {
+      "nominal_capacity_ah": 60.0,
+      "r0_ohm": 0.0019,
+      "rc_resistances_ohm": [
+        0.00065,
+        0.0014,
+        0.00275
+      ],
+      "time_constants_s": [
+        0.2,
+        5.5,
+        42.0
+      ],
+      "temperature_coefficient_per_c": -0.022,
+      "ageing_resistance_gain_at_80pct_soh": 0.65,
+      "ocv_soc_points": [
+        0.0,
+        0.03,
+        0.08,
+        0.15,
+        0.3,
+        0.5,
+        0.7,
+        0.85,
+        0.93,
+        0.98,
+        1.0
+      ],
+      "ocv_v_points": [
+        2.5,
+        2.9,
+        3.15,
+        3.24,
+        3.29,
+        3.31,
+        3.32,
+        3.34,
+        3.42,
+        3.55,
+        3.6
+      ]
+    }
+  },
+  "pybamm_bms_prior_parameters": {
+    "NMC": {
+      "nominal_capacity_ah": 60.902,
+      "r0_ohm": 0.000575,
+      "rc_resistances_ohm": [
+        0.001922,
+        0.000257,
+        0.001714
+      ],
+      "time_constants_s": [
+        0.014,
+        8.629,
+        52.308
+      ],
+      "temperature_coefficient_per_c": -0.03389,
+      "ageing_resistance_gain_at_80pct_soh": 0.25,
+      "ocv_soc_points": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.35,
+        0.5,
+        0.65,
+        0.8,
+        0.9,
+        0.97,
+        1.0
+      ],
+      "ocv_v_points": [
+        2.5912,
+        3.2029,
+        3.3668,
+        3.491,
+        3.6312,
+        3.7503,
+        3.8884,
+        4.0321,
+        4.0852,
+        4.1292,
+        4.1882
+      ]
+    },
+    "LFP": {
+      "nominal_capacity_ah": 60.905,
+      "r0_ohm": 4.6e-05,
+      "rc_resistances_ohm": [
+        0.001372,
+        4e-05,
+        6.4e-05
+      ],
+      "time_constants_s": [
+        0.015,
+        9.19,
+        39.016
+      ],
+      "temperature_coefficient_per_c": -0.0441,
+      "ageing_resistance_gain_at_80pct_soh": 0.25,
+      "ocv_soc_points": [
+        0.0,
+        0.03,
+        0.08,
+        0.15,
+        0.3,
+        0.5,
+        0.7,
+        0.85,
+        0.93,
+        0.98,
+        1.0
+      ],
+      "ocv_v_points": [
+        1.7033,
+        2.508,
+        2.8933,
+        3.087,
+        3.1977,
+        3.2613,
+        3.2686,
+        3.3083,
+        3.3097,
+        3.3435,
+        3.5943
+      ]
+    }
+  }
+}

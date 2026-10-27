@@ -1,0 +1,20 @@
+{
+ "tag": "aged_p09_c1",
+ "cond": "aged",
+ "pack": 9,
+ "cell": 1,
+ "C1": {
+  "rmse_mv": 1.8642039035707172,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 36.068368434906006
+ },
+ "C2": {
+  "rmse_mv": 2.89116415115827,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 35.55925178527832
+ }
+}

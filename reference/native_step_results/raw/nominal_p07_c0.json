@@ -1,0 +1,20 @@
+{
+ "tag": "nominal_p07_c0",
+ "cond": "nominal",
+ "pack": 7,
+ "cell": 0,
+ "C1": {
+  "rmse_mv": 1.5372314387557597,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 97.88296556472778
+ },
+ "C2": {
+  "rmse_mv": 5.650763488865793,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 92.37009811401367
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "tag": "hot_p09_c1",
+ "cond": "hot",
+ "pack": 9,
+ "cell": 1,
+ "C1": {
+  "rmse_mv": 2.476128125103582,
+  "order": 2,
+  "success": true,
+  "refit": false,
+  "sec": 125.94279932975769
+ },
+ "C2": {
+  "rmse_mv": 10.51751710662882,
+  "order": 2,
+  "success": true,
+  "refit": false,
+  "sec": 115.26319527626038
+ }
+}

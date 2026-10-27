@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or its reference results, please cite this repository and the associated manuscript when available."
+type: software
+title: "Convex Grid Estimator for Battery Identification from Complementary Switching Records: research code and reference results"
+authors:
+  - family-names: "Škegro"
+    given-names: "Albert"
+    affiliation: "Chalmers University of Technology"
+keywords:
+  - "battery identification"
+  - "convex estimation"
+  - "switching records"
+  - "equivalent-circuit model"
+
+version: "1.0.0"
+date-released: 2026-10-27
+license: MIT
+repository-code: "https://github.com/askegro/c5-ecc2027-code"
+
+doi: "10.5281/zenodo.23699662"

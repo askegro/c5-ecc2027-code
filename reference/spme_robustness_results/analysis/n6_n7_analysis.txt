@@ -1,0 +1,77 @@
+== paper spreads (stored results): 96 units. Median RMSE over units (mV), known OCV
+      conv     ecm     drt     lin     cge   CGE-ECM [95% CI]        CGE lower than conv/ecm/drt/lin (of 12)
+col    6.90    6.03    5.89    5.90    0.26   -5.55 [-6.14,-5.46]   12 / 12 / 12 / 12
+nom    2.00    1.05    1.10    1.11    0.29   -0.79 [-0.86,-0.69]   12 / 12 / 12 / 12
+hot    1.68    0.41    0.44    0.45    0.25   -0.16 [-0.17,-0.15]   12 / 12 / 12 / 12
+age    2.54    1.50    1.57    1.58    0.41   -1.15 [-1.30,-1.01]   12 / 12 / 12 / 12
+   max Holm p (CGE vs each) 0.0020; linear estimators agree within 0.051 mV (max |median pair difference|)
+   |Z error| % at 0.008 Hz: CGE 1.0-1.6, others 2.8-25.7; CGE lower in min 12 of the packs
+   |Z error| % at 0.05 Hz: CGE 0.9-2.3, others 4.4-24.9; CGE lower in min 12 of the packs
+   |Z error| % at 1.0 Hz: CGE 0.9-2.0, others 4.3-24.5; CGE lower in min 12 of the packs
+== arm lit: 96 units. Median RMSE over units (mV), known OCV
+      conv     ecm     drt     lin     cge   CGE-ECM [95% CI]        CGE lower than conv/ecm/drt/lin (of 12)
+col    7.06    5.87    5.84    5.85    0.26   -5.63 [-6.09,-5.37]   12 / 12 / 12 / 12
+nom    2.02    1.08    1.10    1.11    0.29   -0.80 [-0.88,-0.73]   12 / 12 / 12 / 12
+hot    1.67    0.40    0.42    0.43    0.24   -0.16 [-0.18,-0.14]   12 / 12 / 12 / 12
+age    2.48    1.58    1.58    1.59    0.41   -1.17 [-1.27,-1.03]   12 / 12 / 12 / 12
+   max Holm p (CGE vs each) 0.0020; linear estimators agree within 0.052 mV (max |median pair difference|)
+   |Z error| % at 0.008 Hz: CGE 1.0-1.5, others 2.6-25.6; CGE lower in min 12 of the packs
+   |Z error| % at 0.05 Hz: CGE 0.9-2.1, others 4.0-24.4; CGE lower in min 12 of the packs
+   |Z error| % at 1.0 Hz: CGE 0.9-1.8, others 4.0-24.2; CGE lower in min 12 of the packs
+   checks (count of failures): {'cge_repeat': 0, 'conv_success': 0, 'ecm_success': 0}
+   arm lit minus paper spreads, same packs and seeds: median pack difference (mV) [lower/higher of 12]
+     conv  col -0.009 [6/6]  nom +0.033 [4/8]  hot -0.018 [9/3]  age -0.001 [6/6]
+     ecm   col -0.042 [7/5]  nom +0.042 [3/9]  hot -0.011 [9/3]  age +0.004 [5/7]
+     drt   col -0.040 [7/5]  nom +0.037 [4/8]  hot -0.011 [9/3]  age +0.004 [5/7]
+     lin   col -0.040 [7/5]  nom +0.037 [4/8]  hot -0.011 [9/3]  age +0.004 [5/7]
+     cge   col +0.000 [6/6]  nom +0.008 [4/8]  hot -0.005 [9/3]  age +0.000 [6/6]
+   change of the CGE gain (X - CGE), arm minus paper spreads:
+     conv  col -0.013  nom +0.023  hot -0.014  age -0.005
+     ecm   col -0.041  nom +0.032  hot -0.005  age +0.001
+     drt   col -0.041  nom +0.029  hot -0.005  age +0.002
+     lin   col -0.041  nom +0.030  hot -0.006  age +0.002
+== arm zero: 96 units. Median RMSE over units (mV), known OCV
+      conv     ecm     drt     lin     cge   CGE-ECM [95% CI]        CGE lower than conv/ecm/drt/lin (of 12)
+col    6.71    5.85    5.84    5.84    0.26   -5.63 [-6.08,-5.37]   12 / 12 / 12 / 12
+nom    2.02    1.08    1.10    1.11    0.29   -0.81 [-0.88,-0.74]   12 / 12 / 12 / 12
+hot    1.78    0.40    0.41    0.42    0.24   -0.16 [-0.18,-0.14]   12 / 12 / 12 / 12
+age    2.48    1.58    1.59    1.60    0.41   -1.18 [-1.27,-1.03]   12 / 12 / 12 / 12
+   max Holm p (CGE vs each) 0.0020; linear estimators agree within 0.052 mV (max |median pair difference|)
+   |Z error| % at 0.008 Hz: CGE 1.0-1.6, others 2.7-25.7; CGE lower in min 12 of the packs
+   |Z error| % at 0.05 Hz: CGE 1.0-2.2, others 4.3-24.9; CGE lower in min 12 of the packs
+   |Z error| % at 1.0 Hz: CGE 0.9-2.0, others 4.2-24.8; CGE lower in min 12 of the packs
+   checks (count of failures): {'cge_repeat': 0, 'conv_success': 0, 'ecm_success': 0}
+   arm zero minus paper spreads, same packs and seeds: median pack difference (mV) [lower/higher of 12]
+     conv  col -0.051 [7/5]  nom +0.032 [4/8]  hot -0.022 [9/3]  age -0.001 [7/5]
+     ecm   col -0.060 [7/5]  nom +0.043 [3/9]  hot -0.013 [9/3]  age +0.001 [6/6]
+     drt   col -0.058 [7/5]  nom +0.036 [4/8]  hot -0.013 [9/3]  age +0.002 [6/6]
+     lin   col -0.058 [7/5]  nom +0.036 [4/8]  hot -0.013 [9/3]  age +0.002 [6/6]
+     cge   col -0.002 [8/4]  nom +0.007 [4/8]  hot -0.007 [9/3]  age -0.001 [7/5]
+   change of the CGE gain (X - CGE), arm minus paper spreads:
+     conv  col -0.048  nom +0.024  hot -0.016  age -0.002
+     ecm   col -0.058  nom +0.035  hot -0.006  age +0.001
+     drt   col -0.055  nom +0.029  hot -0.006  age +0.001
+     lin   col -0.055  nom +0.029  hot -0.006  age +0.001
+== arm dl: 96 units. Median RMSE over units (mV), known OCV
+      conv     ecm     drt     lin     cge   CGE-ECM [95% CI]        CGE lower than conv/ecm/drt/lin (of 12)
+col   11.68    5.96    6.03    5.91    3.59   -2.38 [-2.56,-2.27]   12 / 12 / 12 / 12
+nom    8.21    1.10    1.33    1.09    0.34   -0.69 [-0.80,-0.65]   12 / 12 / 12 / 12
+hot    5.96    0.40    0.67    0.43    0.23   -0.18 [-0.19,-0.16]   12 / 12 / 12 / 12
+age    8.32    1.51    1.77    1.57    0.54   -1.04 [-1.19,-0.93]   12 / 12 / 12 / 12
+   max Holm p (CGE vs each) 0.0020; linear estimators agree within 0.261 mV (max |median pair difference|)
+   |Z error| % at 0.008 Hz: CGE 1.3-10.3, others 2.8-35.6; CGE lower in min 12 of the packs
+   |Z error| % at 0.05 Hz: CGE 4.3-12.5, others 5.6-31.9; CGE lower in min 12 of the packs
+   |Z error| % at 1.0 Hz: CGE 7.1-17.9, others 5.6-32.4; CGE lower in min 0 of the packs
+   checks (count of failures): {'cge_repeat': 0, 'conv_success': 0, 'ecm_success': 0}
+   arm dl minus paper spreads, same packs and seeds: median pack difference (mV) [lower/higher of 12]
+     conv  col +4.717 [0/12]  nom +6.268 [0/12]  hot +4.050 [0/12]  age +6.124 [0/12]
+     ecm   col -0.003 [6/6]  nom -0.000 [6/6]  hot -0.012 [12/0]  age -0.000 [6/6]
+     drt   col +0.123 [0/12]  nom +0.212 [0/12]  hot +0.239 [0/12]  age +0.190 [0/12]
+     lin   col -0.006 [7/5]  nom -0.004 [9/3]  hot -0.017 [12/0]  age -0.013 [10/2]
+     cge   col +3.193 [0/12]  nom +0.048 [1/11]  hot -0.024 [12/0]  age +0.111 [2/10]
+   change of the CGE gain (X - CGE), arm minus paper spreads:
+     conv  col +1.187  nom +6.184  hot +4.073  age +6.063
+     ecm   col -3.268  nom -0.039  hot +0.012  age -0.115
+     drt   col -3.087  nom +0.174  hot +0.261  age +0.074
+     lin   col -3.203  nom -0.048  hot +0.007  age -0.122
+-> n6_contrast.json

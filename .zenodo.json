@@ -1,0 +1,26 @@
+{
+  "title": "Convex Grid Estimator for Battery Identification from Complementary Switching Records: research code and reference results",
+  "upload_type": "software",
+  "description": "Implementation and reference results for a convex grid estimator for battery identification from complementary switching records, including estimator comparisons, SPMe and DFN robustness studies, and scripts for statistical analysis, tables, and figures.",
+  "creators": [
+    {
+      "name": "Škegro, Albert",
+      "affiliation": "Chalmers University of Technology"
+    }
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "battery identification",
+    "convex estimation",
+    "switching records",
+    "equivalent-circuit model"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/askegro/c5-ecc2027-code",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+96 units
+cold cge all 2.43 drive 1.14 rest 4.51 | lin all 5.10 drive 5.10 rest 5.86 | SOC change 3.40 %
+nominal cge all 2.16 drive 1.32 rest 3.67 | lin all 1.52 drive 1.25 rest 2.33 | SOC change 3.32 %
+hot cge all 3.01 drive 1.55 rest 5.32 | lin all 2.16 drive 1.23 rest 3.72 | SOC change 3.40 %
+aged cge all 2.77 drive 1.80 rest 4.66 | lin all 1.79 drive 1.68 rest 2.24 | SOC change 3.97 %

@@ -1,0 +1,20 @@
+{
+ "tag": "nominal_p00_c1",
+ "cond": "nominal",
+ "pack": 0,
+ "cell": 1,
+ "C1": {
+  "rmse_mv": 1.8983151920656882,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 69.33108758926392
+ },
+ "C2": {
+  "rmse_mv": 1.82527407372255,
+  "order": 1,
+  "success": true,
+  "refit": false,
+  "sec": 62.227259397506714
+ }
+}
